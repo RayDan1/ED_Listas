@@ -17,7 +17,7 @@ namespace ListasSimplementeLigadas
         public bool ValidaVacio()
         {
             return (nodoInicial.Enlace == null);
-            
+
         }
         public void Vaciar()
         {
@@ -27,7 +27,7 @@ namespace ListasSimplementeLigadas
         {
             string datosLista = "";
             nodoActual = nodoInicial;
-            while(nodoActual.Enlace != null)
+            while (nodoActual.Enlace != null)
             {
                 nodoActual = nodoActual.Enlace;
                 datosLista += $"{nodoActual.Valor}\n";
@@ -52,13 +52,60 @@ namespace ListasSimplementeLigadas
                 while (nodoBusqueda.Enlace != null)
                 {
                     nodoBusqueda = nodoBusqueda.Enlace;
-                    if(nodoBusqueda.Valor == dato)
+                    if (nodoBusqueda.Valor == dato)
                     {
                         return nodoBusqueda;
                     }
                 }
             }
             return null;
+        }
+        public Nodo BuscarPorIndice(int indice)
+        {
+            int Indice = -1;
+            if (ValidaVacio() == false)
+            {
+                Nodo nodoBusqueda = nodoInicial;
+                while (nodoBusqueda.Enlace != null)
+                {
+                    nodoBusqueda = nodoInicial.Enlace;
+                    Indice++;
+                    if (Indice == Indice)
+                    {
+                        return nodoBusqueda;
+                    }
+                }
+            }
+            return null;
+        }
+        public Nodo BuscarAnterior(string dato)
+        {
+            if (ValidaVacio() == false)
+            {
+                Nodo nodoBusqueda = nodoInicial;
+                while (nodoBusqueda.Enlace != null && nodoBusqueda.Enlace.Valor != dato)
+                {
+                    nodoBusqueda = nodoBusqueda.Enlace;
+                    if (nodoBusqueda.Enlace.Valor == dato)
+                    {
+                        return nodoBusqueda;
+                    }
+                }
+            }
+            return null;
+        }
+        public void BorrarNodo(string dato)
+        {
+            if (ValidaVacio() == false)
+            {
+                nodoActual = Buscar(dato);
+                if (nodoActual != null)
+                {
+                    Nodo nodoAnterior = BuscarAnterior(dato);
+                    nodoAnterior.Enlace = nodoActual.Enlace;
+                    nodoActual.Enlace = null;
+                }
+            }
         }
     }
 }
