@@ -46,10 +46,10 @@ namespace ListasSimplementeLigadas
         }
         public Nodo Buscar(string dato)
         {
-            if(ValidaVacio() == false)
+            if (ValidaVacio() == false)
             {
                 Nodo nodoBusqueda = nodoInicial;
-                while (nodoBusqueda.Enlace = null)
+                while (nodoBusqueda.Enlace != null)
                 {
                     nodoBusqueda = nodoBusqueda.Enlace;
                     if(nodoBusqueda.Valor == dato)
