@@ -14,6 +14,7 @@ namespace ListaDoblementeLigada
         {
             nodoInicial = new Nodo();
             nodoActual = nodoInicial;
+            
 
         }
         public bool ValidaVacio()
@@ -90,8 +91,12 @@ namespace ListaDoblementeLigada
                 {
                     Nodo nodoAnterior = nodoActual.NodoAnterior;
                     nodoAnterior.NodoSiguiente = nodoActual.NodoSiguiente;
+                    if(nodoActual.NodoSiguiente!=null)
+                        nodoActual.NodoSiguiente.NodoAnterior = nodoAnterior;
                     nodoActual.NodoSiguiente = null;
                     nodoActual.NodoAnterior = null;
+                    nodoActual.Valor = null;
+                    
                 }
             }
         }
