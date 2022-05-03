@@ -45,6 +45,7 @@ namespace ListasCirculares
             }
             Nodo nodoNuevo = new Nodo(dato);
             nodoActual.Enlace = nodoNuevo;
+            nodoNuevo.Enlace = nodoInicial;
         }
         public Nodo Buscar(string dato)
         {
