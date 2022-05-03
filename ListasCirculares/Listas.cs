@@ -22,13 +22,13 @@ namespace ListasCirculares
         }
         public void Vaciar()
         {
-            nodoInicial.Enlace = null;
+            nodoInicial.Enlace = nodoInicial;
         }
         public string RecorrerLista()
         {
             string datosLista = "";
             nodoActual = nodoInicial;
-            while (nodoActual.Enlace != null)
+            while (nodoActual.Enlace != nodoInicial)
             {
                 nodoActual = nodoActual.Enlace;
                 datosLista += $"{nodoActual.Valor}\n";
